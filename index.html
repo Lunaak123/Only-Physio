@@ -31,13 +31,72 @@
         
         
       }
-      
+      /* Add underline effect on hover */
+.main-menu li {
+    position: relative; /* Required for underline effect */
+}
+
+
+
+
+
+.main-menu li::after {
+    content: '';
+    position: absolute;
+    bottom:20px; /* Align underline to the bottom of the text */
+    left: 0;
+    width: 0;
+    height: 3px; /* Thickness of the underline */
+    background-color: #1fbcb9; /* Underline color */
+    transition: width 0.3s ease; /* Smooth animation */
+}
+
+.main-menu li:hover::after {
+    width: 100%; /* Expand underline on hover */
+}
+
       .f-widget-title {
         display: flex;
         justify-content: center; /* Align horizontally in the center */
         gap: 20px; /* Optional: Space between logos */
         align-items: center; /* Align logos vertically */
     }
+
+    /* Styling for the button inside the link */
+.button-booking button {
+    display: inline-block;
+    background-color: #2ed8eb; /* Primary blue */
+    color: rgb(255, 255, 255); /* Text color */
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 25px; /* Button padding */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded corners */
+    text-align: center; /* Center text */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 3D shadow effect */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Hover Effect */
+.button-booking button:hover {
+    background-color: #7ddeea; /* Darker blue */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+}
+
+/* Active (Click) Effect */
+.button-booking button:active {
+    background-color: #0077ff; /* Even darker blue */
+    transform: translateY(2px); /* Simulate press effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Smaller shadow */
+    
+}
+
+/* Remove default styling of <a> */
+.button-booking {
+    text-decoration: none; /* Remove underline */
+}
 
     .f-widget-title h2 {
         margin: 0; /* Remove default margin from h2 elements */
@@ -65,7 +124,7 @@
         border-color: rgb(188, 223, 249); /* Blue border color */
         border-style: solid;
         max-width: 520px;
-        max-height: 520px;/* Make sure the border is visible */
+        max-height: 520px; /* Make sure the border is visible */
     }
     
       .quality-service {
@@ -81,7 +140,6 @@
       .info {
         flex: 1;
         margin-right: 10px;
-	width:320px;   
 
       }
       
@@ -197,8 +255,8 @@
                                     <ul>
                                         
                                         <li><a href="index.php">Home</a></li>
-                                        <li><a href="about.php">About</a></li>
                                         <li><a href="./Booking/index.html">Booking</a></li>
+                                        <li><a href="about.php">About</a></li>
                                         <li><a href="services.php">Services</a></li>
                                         <!-- <li class="has-sub">
                                                 <a href="#">Other Services</a>
@@ -272,7 +330,7 @@
 
             <div class="slider-active" style="background: #00173c;">
                 <div class="single-slider slider-bg d-flex align-items-center"
-                    style="background-image: url(img/slider/slider_bg.png); background-size: cover;">
+                    style="background-image: url(img/slider/slider_bg.webp); background-size: cover;">
                     <div class="container">
                         <div class="row justify-content-center align-items-center">
 
@@ -286,16 +344,15 @@
                                     <p data-animation="fadeInUp" data-delay=".6s" style="font-family: poppins;">Our Family Clinic provides affordable and quality healthcare to rural and urban areas in India.</p>
                                     <br />
                                     <div class="second-header-btn">
-                                        <a href="contact.php" class=""
-                                            style="color: #fff;font-family: poppins;color: #ffffffdb;"> View Details <i
-                                                class="far fa-angle-right"></i></a>
+                                        <a href="./Booking/index.html" class="button-booking"><button>Booking</button></a>
+
                                     </div>
 
                                 </div>
                             </div>
                             <div class="col-lg-5 col-md-5 p-relative">
                                 <div class="banner-img">
-                                    <img src="img/slider/banner1.png" alt="banner" class="circular-image">
+                                    <img src="img/slider/banner1.webp" alt="banner" class="circular-image">
                                 </div>
 
                             </div>
@@ -337,8 +394,7 @@
                   <ul>
                     <li><span>✔</span> Expert Physiotherapist: Team certified & trained in latest advanced physio techniques</li>
                     <li><span>✔</span> Highly Rated: +4.9 Star Rating for quality physiotherapy care and service</li>
-                    <li><span>✔</span> Cities: Our services is provied at the all over the india,Includes Chennai,Banglore,Mumbai,</br>Pune,Delhi.</li>
-			    
+                    <li><span>✔</span> Cities: Our services is provied at the all over the india, Includes Chennai,Banglore,Mumbai,Pune,Hydrabad,Delhi.</li>
                     <li><span>✔</span>  Physio Service's:
                         General Physiotherapist,
                         Ortho Physiotherapist,
@@ -624,14 +680,14 @@
         <!-- about-area-end -->
         <!-- style="background-image: url('img/bg/footer.jpg');" -->
 
-        <section class="faq-area fix sec" style="    background: linear-gradient(168deg, rgba(3,127,201,1) 0%, rgba(1,178,106,1) 84%);">
+        <section class="faq-area fix sec" style="    background: linear-gradient(168deg, rgba(138,43,226,1) 0%, rgba(135,206,250,1) 84%);">
             <div class="container">
 
                 <div class="row align-items-center">
 
                     <div class="col-lg-7">
                         <div class="section-title">
-                            <h3 style="color: #fdfdfd;font-family: 'Nunito', sans-serif; font-size: 20px;">"More than <br> <span class="one_million"> 1.2 Million </span>  Walkin Consultations so far- India's leading and most Thriving Primary Healcare chain"</h3>
+                            <h3 style="color: #fdfdfd;font-family: 'Nunito', sans-serif; font-size: 20px;">"More than <br> <span class="one_million"> 100 </span>  Walkin Consultations so far- India's leading and most Thriving Primary Healcare chain"</h3>
                         </div>
                         <div class="faq-wrap">
                             <br />
