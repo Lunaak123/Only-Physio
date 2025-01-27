@@ -2012,21 +2012,23 @@ label {
 }
 
 .sr-tw-ul li p {
-    margin-bottom: px;
+    margin-bottom: 0;
 }
 
 .sr-tw-ul li .icon {
     width: 108px;
 }
 
-.sr-tw-ul li .icon img,
-.sr-tw-ul li .icon-right img {
-    
-}
 
+
+.sr-tw-ul li .icon img, .sr-tw-ul li .icon-right img {
+    padding: 0px 0px 20px 0px;
+}
 .sr-tw-ul li .icon-right {
     width: 100%;
     height: 100%;
+
+
     
 }
 
@@ -13437,13 +13439,14 @@ section#counter-stats {
     color: #000000ba;
 }
 
+
 .stats {
     text-align: center;
     font-size: 46px;
     font-weight: 700;
     font-family: "Montserrat", sans-serif;
     color: #fff;
-    background-color: #00a29a;
+    background-color: #0d5761;
     padding: 101px;
     border-radius: 5px;
 }
