@@ -1,27 +1,33 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     background: url('man-medical-office-physiotherapist-is-rehabilitating-back.jpg') no-repeat center center fixed;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    padding: 10px;
 }
 
-
+/* Form Container */
 .form-container {
     width: 100%;
-    max-width: 500px;
-    margin: 20px;
+    max-width: 450px;
     padding: 20px;
-    background-color: #ffffff29;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.448);
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
+/* Form Title */
 h1 {
     text-align: center;
     font-size: 1.8rem;
@@ -29,6 +35,7 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* Form Groups */
 .form-group {
     margin-bottom: 15px;
 }
@@ -40,29 +47,31 @@ label {
     margin-bottom: 5px;
 }
 
-input[type="text"], input[type="email"], input[type="tel"], input[type="date"], input[type="time"], select, textarea {
+/* Input Fields */
+input, select, textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
     font-size: 14px;
-    box-sizing: border-box;
+    outline: none;
 }
 
 textarea {
     resize: vertical;
 }
 
+/* Submit Button */
 button.submit-btn {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: 0.3s ease;
 }
 
 button.submit-btn:hover {
@@ -71,12 +80,13 @@ button.submit-btn:hover {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 1.5rem;
+    .form-container {
+        max-width: 90%;
+        padding: 15px;
     }
 
-    .form-container {
-        padding: 15px;
+    h1 {
+        font-size: 1.5rem;
     }
 
     button.submit-btn {
@@ -85,8 +95,13 @@ button.submit-btn:hover {
 }
 
 @media (max-width: 480px) {
+    .form-container {
+        max-width: 100%;
+        padding: 15px;
+    }
+
     h1 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 
     input, select, textarea {
@@ -94,7 +109,7 @@ button.submit-btn:hover {
     }
 
     button.submit-btn {
-        padding: 8px;
-        font-size: 12px;
+        padding: 10px;
+        font-size: 14px;
     }
 }
