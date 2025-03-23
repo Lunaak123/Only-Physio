@@ -1,65 +1,30 @@
-// Select elements
-const form = document.getElementById('appointment-form');
-const fromTimeInput = document.getElementById('from-time');
-const toTimeInput = document.getElementById('to-time');
-const timeSlotDropdown = document.getElementById('time-slot');
+document.getElementById("appointment-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
 
-// Update time slots dynamically
-function updateTimeSlots() {
-    const fromTime = fromTimeInput.value;
-    const toTime = toTimeInput.value;
+    // Get form values
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
+    let date = document.getElementById("date").value;
+    let timeSlot = document.getElementById("time-slot").value;
+    let message = document.getElementById("message").value;
 
-    timeSlotDropdown.innerHTML = '<option value="">Select a time slot</option>';
+    // WhatsApp Number (Replace with your number)
+    let whatsappNumber = "9042718811"; // Change this to your WhatsApp number
 
-    if (fromTime && toTime && fromTime < toTime) {
-        let [fromHours, fromMinutes] = fromTime.split(':').map(Number);
-        let [toHours, toMinutes] = toTime.split(':').map(Number);
+    // Format message
+    let whatsappMessage = `Hello, I would like to book a physiotherapy appointment.\n\n` +
+                          `*Name:* ${name}\n` +
+                          `*Email:* ${email}\n` +
+                          `*Phone:* ${phone}\n` +
+                          `*Date:* ${date}\n` +
+                          `*Time Slot:* ${timeSlot}\n` +
+                          `*Message:* ${message}`;
 
-        while (fromHours < toHours || (fromHours === toHours && fromMinutes < toMinutes)) {
-            const slot = `${String(fromHours).padStart(2, '0')}:${String(fromMinutes).padStart(2, '0')}`;
-            const option = document.createElement('option');
-            option.value = slot;
-            option.textContent = slot;
-            timeSlotDropdown.appendChild(option);
+    // Encode message for URL
+    let encodedMessage = encodeURIComponent(whatsappMessage);
 
-            fromMinutes += 30;
-            if (fromMinutes >= 60) {
-                fromMinutes -= 60;
-                fromHours++;
-            }
-        }
-    }
-}
-
-fromTimeInput.addEventListener('change', updateTimeSlots);
-toTimeInput.addEventListener('change', updateTimeSlots);
-
-// Send form data to WhatsApp
-form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const therapistType = document.getElementById('therapist-type').value;
-    const date = document.getElementById('date').value;
-    const fromTime = fromTimeInput.value;
-    const toTime = toTimeInput.value;
-    const timeSlot = timeSlotDropdown.value;
-    const message = document.getElementById('message').value;
-
-    const whatsappNumber = '9042718811';
-    const whatsappMessage = `Hello, I want to book an appointment:
-- Name: ${name}
-- Email: ${email}
-- Phone: ${phone}
-- Therapist Type: ${therapistType}
-- Date: ${date}
-- From Time: ${fromTime}
-- To Time: ${toTime}
-- Selected Slot: ${timeSlot}
-- Message: ${message}`;
-
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-    window.open(whatsappURL, '_blank');
+    // Open WhatsApp link
+    let whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    window.open(whatsappURL, "_blank");
 });
