@@ -14,11 +14,10 @@ document.getElementById("appointment-form").addEventListener("submit", function(
 - Name: ${name}
 - Email: ${email}
 - Phone: ${phone}
-- Therapist Type: ${therapistType}
+
 - Date: ${date}
-- From Time: ${fromTime}
-- To Time: ${toTime}
-- Selected Slot: ${timeSlot}
+
+- Time: ${time-Slot}
 - Message: ${message}`; // Default text if empty
 
     let encodedMessage = encodeURIComponent(whatsappMessage); // Proper encoding
