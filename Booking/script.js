@@ -8,16 +8,18 @@ document.getElementById("appointment-form").addEventListener("submit", function(
     let timeSlot = document.getElementById("time-slot").value;
     let message = document.getElementById("message").value;
 
-    let whatsappNumber = "919876543210"; // Replace with a real WhatsApp number
+    let whatsappNumber = "919042718811"; // Replace with a real WhatsApp number
 
-    let whatsappMessage = 
-        `*Hello, I would like to book a physiotherapy appointment.*\n\n` +
-        `*Name:* ${name}\n` +
-        `*Email:* ${email}\n` +
-        `*Phone:* ${phone}\n` +
-        `*Date:* ${date}\n` +
-        `*Time Slot:* ${timeSlot}\n` +
-        `*Message:* ${message || "No additional message"}`; // Default text if empty
+     const whatsappMessage = `Hello, I want to book an appointment:
+- Name: ${name}
+- Email: ${email}
+- Phone: ${phone}
+- Therapist Type: ${therapistType}
+- Date: ${date}
+- From Time: ${fromTime}
+- To Time: ${toTime}
+- Selected Slot: ${timeSlot}
+- Message: ${message}`; // Default text if empty
 
     let encodedMessage = encodeURIComponent(whatsappMessage); // Proper encoding
     let whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
