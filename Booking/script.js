@@ -28,9 +28,9 @@ document.getElementById("appointment-form").addEventListener("submit", function(
                           `*Message:* ${message}`;
 
     // Encode message for URL
-   
+   let encodedMessage = encodeURIComponent(whatsappMessage);
 
     // Open WhatsApp with pre-filled message
-    let whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+    let whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
     window.open(whatsappURL, "_blank"); // Open in new tab
 });
