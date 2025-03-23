@@ -16,7 +16,7 @@ document.getElementById("appointment-form").addEventListener("submit", function(
     }
 
     // WhatsApp Number (Replace with actual number in international format)
-    let whatsappNumber = "919042718811"; // Example: +91 for India, remove + and spaces
+    let whatsappNumber = "9042718811"; // Example: +91 for India, remove + and spaces
 
     // Format the message correctly
     let whatsappMessage = `Hello, I would like to book a physiotherapy appointment.\n\n` +
@@ -28,9 +28,9 @@ document.getElementById("appointment-form").addEventListener("submit", function(
                           `*Message:* ${message}`;
 
     // Encode message for URL
-    let encodedMessage = encodeURIComponent(whatsappMessage);
+   
 
     // Open WhatsApp with pre-filled message
-    let whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    let whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
     window.open(whatsappURL, "_blank"); // Open in new tab
 });
