@@ -13,12 +13,12 @@ form.addEventListener('submit', function (e) {
     const timeSlot = timeSlotDropdown?.value;
     const message = document.getElementById('message')?.value.trim();
 
-    if (!name || !phone || !date || !timeSlot) {
+    if (!name || !phone || !date || !timeSlot || timeSlot === "none") {
         alert("Please fill all required fields.");
         return;
     }
 
-    const whatsappNumber = '+919042718811'; // Ensure correct country code
+    const whatsappNumber = '919042718811'; // No '+' needed
     const whatsappMessage = `Hello, I want to book an appointment:
 - Name: ${name}
 - Email: ${email}
@@ -29,6 +29,7 @@ form.addEventListener('submit', function (e) {
 
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
     
-    console.log("WhatsApp URL:", whatsappURL); // Debugging
+    console.log("Generated WhatsApp URL:", whatsappURL);
+    alert(whatsappURL);  // Debugging
     window.open(whatsappURL, '_blank');
 });
