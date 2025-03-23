@@ -48,15 +48,15 @@ form.addEventListener('submit', function (e) {
     const timeSlot = timeSlotDropdown.value;
     const message = document.getElementById('message').value;
 
-    const whatsappNumber = '8220638753';
+    const whatsappNumber = '9042718811';
     const whatsappMessage = `Hello, I want to book an appointment:
 - Name: ${name}
 - Email: ${email}
 - Phone: ${phone}
-- Therapist Type: ${therapistType}
+
 - Date: ${date}
-- From Time: ${fromTime}
-- To Time: ${toTime}
+
+
 - Selected Slot: ${timeSlot}
 - Message: ${message}`;
 
