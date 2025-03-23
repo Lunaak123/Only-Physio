@@ -8,7 +8,7 @@ document.getElementById("appointment-form").addEventListener("submit", function(
     let timeSlot = document.getElementById("time-slot").value;
     let message = document.getElementById("message").value;
 
-    let whatsappNumber = "919042718811"; // Replace with a real WhatsApp number
+    let whatsappNumber = "9042718811"; // Replace with a real WhatsApp number
 
      const whatsappMessage = `Hello, I want to book an appointment:
 - Name: ${name}
