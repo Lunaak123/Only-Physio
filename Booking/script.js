@@ -1,43 +1,65 @@
-// Select the form
+// Select elements
 const form = document.getElementById('appointment-form');
+const fromTimeInput = document.getElementById('from-time');
+const toTimeInput = document.getElementById('to-time');
+const timeSlotDropdown = document.getElementById('time-slot');
 
-// Handle form submission
-form.addEventListener('submit', function (e) {
-    e.preventDefault(); // Stop default form submission
+// Update time slots dynamically
+function updateTimeSlots() {
+    const fromTime = fromTimeInput.value;
+    const toTime = toTimeInput.value;
 
-    // Get form values
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const date = document.getElementById('date').value;
-    const timeSlot = document.getElementById('time-slot').value;
-    const message = document.getElementById('message').value.trim();
+    timeSlotDropdown.innerHTML = '<option value="">Select a time slot</option>';
 
-    // Validate required fields
-    if (!name || !phone || !date || !timeSlot) {
-        alert("Please fill all required fields.");
-        return;
+    if (fromTime && toTime && fromTime < toTime) {
+        let [fromHours, fromMinutes] = fromTime.split(':').map(Number);
+        let [toHours, toMinutes] = toTime.split(':').map(Number);
+
+        while (fromHours < toHours || (fromHours === toHours && fromMinutes < toMinutes)) {
+            const slot = `${String(fromHours).padStart(2, '0')}:${String(fromMinutes).padStart(2, '0')}`;
+            const option = document.createElement('option');
+            option.value = slot;
+            option.textContent = slot;
+            timeSlotDropdown.appendChild(option);
+
+            fromMinutes += 30;
+            if (fromMinutes >= 60) {
+                fromMinutes -= 60;
+                fromHours++;
+            }
+        }
     }
+}
 
-    // WhatsApp number (remove the "+" sign)
-    const whatsappNumber = '919042718811';
+fromTimeInput.addEventListener('change', updateTimeSlots);
+toTimeInput.addEventListener('change', updateTimeSlots);
 
-    // Construct the WhatsApp message with proper encoding
+// Send form data to WhatsApp
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const therapistType = document.getElementById('therapist-type').value;
+    const date = document.getElementById('date').value;
+    const fromTime = fromTimeInput.value;
+    const toTime = toTimeInput.value;
+    const timeSlot = timeSlotDropdown.value;
+    const message = document.getElementById('message').value;
+
+    const whatsappNumber = '9042718811';
     const whatsappMessage = `Hello, I want to book an appointment:
-📝 Name: ${name}
-📧 Email: ${email}
-📞 Phone: ${phone}
-📅 Date: ${date}
-⏰ Selected Slot: ${timeSlot}
-📝 Message: ${message || "No additional message provided"}`;
+- Name: ${name}
+- Email: ${email}
+- Phone: ${phone}
+- Therapist Type: ${therapistType}
+- Date: ${date}
+- From Time: ${fromTime}
+- To Time: ${toTime}
+- Selected Slot: ${timeSlot}
+- Message: ${message}`;
 
-    // Encode the message properly for URL compatibility
-    const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappMessage)}`;
-
-    // Debugging: Show the generated link
-    console.log("WhatsApp Link:", whatsappURL);
-    alert("Opening WhatsApp with details...");
-
-    // Open WhatsApp with message autofilled
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappURL, '_blank');
 });
