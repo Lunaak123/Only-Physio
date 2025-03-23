@@ -1,37 +1,20 @@
 // Select the form
 const form = document.getElementById('appointment-form');
 
-// Load saved form data from localStorage on page load
-window.addEventListener('load', function () {
-    document.getElementById('name').value = localStorage.getItem('name') || '';
-    document.getElementById('email').value = localStorage.getItem('email') || '';
-    document.getElementById('phone').value = localStorage.getItem('phone') || '';
-    document.getElementById('date').value = localStorage.getItem('date') || '';
-    document.getElementById('time-slot').value = localStorage.getItem('time-slot') || '';
-    document.getElementById('message').value = localStorage.getItem('message') || '';
-});
-
-// Save form data to localStorage when user types
-document.querySelectorAll("input, select, textarea").forEach(element => {
-    element.addEventListener("input", () => {
-        localStorage.setItem(element.id, element.value);
-    });
-});
-
 // Handle form submission
 form.addEventListener('submit', function (e) {
     e.preventDefault(); // Stop default form submission
 
     // Get form values
-    const name = document.getElementById('name')?.value.trim();
-    const email = document.getElementById('email')?.value.trim();
-    const phone = document.getElementById('phone')?.value.trim();
-    const date = document.getElementById('date')?.value;
-    const timeSlot = document.getElementById('time-slot')?.value;
-    const message = document.getElementById('message')?.value.trim();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const date = document.getElementById('date').value;
+    const timeSlot = document.getElementById('time-slot').value;
+    const message = document.getElementById('message').value.trim();
 
     // Validate required fields
-    if (!name || !phone || !date || !timeSlot || timeSlot === "none") {
+    if (!name || !phone || !date || !timeSlot) {
         alert("Please fill all required fields.");
         return;
     }
@@ -39,7 +22,7 @@ form.addEventListener('submit', function (e) {
     // WhatsApp number (remove the "+" sign)
     const whatsappNumber = '919042718811';
 
-    // Construct the WhatsApp message
+    // Construct the WhatsApp message with proper encoding
     const whatsappMessage = `Hello, I want to book an appointment:
 📝 Name: ${name}
 📧 Email: ${email}
@@ -48,16 +31,13 @@ form.addEventListener('submit', function (e) {
 ⏰ Selected Slot: ${timeSlot}
 📝 Message: ${message || "No additional message provided"}`;
 
-    // Encode message for WhatsApp URL
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-
-    // Save form data before opening WhatsApp
-    localStorage.setItem("whatsappMessage", whatsappMessage);
+    // Encode the message properly for URL compatibility
+    const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappMessage)}`;
 
     // Debugging: Show the generated link
     console.log("WhatsApp Link:", whatsappURL);
     alert("Opening WhatsApp with details...");
 
-    // Open WhatsApp
+    // Open WhatsApp with message autofilled
     window.open(whatsappURL, '_blank');
 });
