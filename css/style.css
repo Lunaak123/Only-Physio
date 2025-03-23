@@ -92,6 +92,12 @@ body {
     position: absolute;
     bottom: -90px;
 }
+#main-logo{
+	
+    border-radius: 260px;
+    height: 100%;
+    width: 100px;
+}
 
 .line5 {
     display: block;
