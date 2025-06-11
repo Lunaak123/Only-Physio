@@ -700,7 +700,7 @@ label {
 .sticky-menu {
     left: 0;
     margin: auto;
-    position: fixed !important;
+/*     position: fixed !important; */
     top: 0;
     width: 100%;
     box-shadow: 0 0 60px 0 rgba(0, 0, 0, .07);
