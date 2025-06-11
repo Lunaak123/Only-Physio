@@ -101,12 +101,16 @@ body {
     position: absolute;
     bottom: -90px;
 }
+
 #main-logo{
-	
-    border-radius: 100px;
-    height: 100px;
-    width: 100px;
+  width: 80px;
+  height: 80px;
+ 
+  object-fit: cover;
+  border-radius: 20%;
+  display: block;
 }
+
 
 .line5 {
     display: block;
