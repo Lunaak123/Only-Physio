@@ -403,26 +403,25 @@ label {
     margin-top: -50px;
     margin-left: 0px;
 }
-
-/* scrollUp */
-
 #scrollUp {
-    background: #e6252a;
-    height: 45px;
-    width: 45px;
-    right: 50px;
-    bottom: 77px;
-    color: #fff;
-    font-size: 20px;
-    text-align: center;
-    border-radius: 50%;
-    font-size: 22px;
-    line-height: 45px;
-    transition: .3s;
+  position: fixed;            /* Fix position on screen */
+  right: 50px;
+  bottom: 77px;
+
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;         /* Make it a perfect circle */
+
+  background: url('../img/slider/scroll-up.webp') center center no-repeat;
+  background-size: contain;   /* Scale image to fit inside */
+
+  cursor: pointer;
+  transition: transform .3s ease;
 }
 
 #scrollUp:hover {
-    background: #5fc1c8;
+    color: #06ffb9;
+    
 }
 
 /* 2. header */
