@@ -111,6 +111,18 @@ body {
   display: block;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+.review-scroll{
+  padding: 10px 20px;
+  background-color: #007f5f;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
 
 .line5 {
     display: block;
