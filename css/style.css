@@ -110,21 +110,6 @@ body {
   display: block;
 }
 
-.line5 {
-    display: block;
-}
-
-.mr-15 {
-    margin-right: 15px;
-}
-
-.img {
-    max-width: 100%;
-    transition: all 0.3s ease-out 0s;
-}
-
-
-
 
 
 .logo-container {
@@ -132,7 +117,7 @@ body {
   width: 300px;
   display: flex;
   align-items: end;
-  gap:3px;
+  gap:10px;
 }
 
 .logo-container h3 {
@@ -147,6 +132,37 @@ body {
 }
 
 
+.slide-in-text {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.8s ease-out;
+}
+
+.slide-in-text.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+
+
+
+
+.line5 {
+    display: block;
+}
+
+
+
+
+.mr-15 {
+    margin-right: 15px;
+}
+
+.img {
+    max-width: 100%;
+    transition: all 0.3s ease-out 0s;
+}
 
 .f-left {
     float: left
@@ -13006,7 +13022,7 @@ hr {
     border-left-color: currentcolor;
     padding: 30px;
     border-width: 1px;
-    border-color: rbg(0 0 0);
+    border-color: rgb(253, 250, 250);
     border-style: solid;
     border-radius: 4px;
     margin-bottom: 0px;
