@@ -161,7 +161,7 @@
       .info button {
         padding: 10px 20px;
         margin-top: 30px;
-	      margin-bottom:10px;
+        margin-bottom: 10px;
         background-color: #0a4b5c; /* Initial blue color */
         color: #fff6f6; /* White text */
         border: none;
@@ -245,16 +245,22 @@
                 <div class="second-menu">
                     <div class="row align-items-center">
                         <div class="col-xl-2 col-lg-2">
-                            <div class="logo-container">
+                           <div class="logo-container">
   
   <img src="img/logo/logo.png" alt="logo" class="logo-image">
-  <h3>ONLY PHYSIO</h3>
+  <div class="slide-in-text">
+  <h3 >ONLY PHYSIO</h3>
+  </div>
 </div>
+
+                           
                         </div>
                         <div class="col-xl-7 col-lg-7">
 
                             <div class="main-menu text-right text-xl-right">
+                                
                                 <nav id="mobile-menu" style="display: block;">
+                                    
                                     <ul>
                                         
                                         <li><a href="index.html">Home</a></li>
@@ -372,8 +378,7 @@
                 </div>
 
             </div>
-         
-              
+
 
 
         </main>
@@ -398,11 +403,13 @@
                         </div>
 
                     </div>
+                    
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         <div class="about-content s-about-content">
 
                             <ul class="sr-tw-ul text-right">
-                                <li>
+                                
+                                <li >
 
                                     <div class="text">
                                         <h4 style="text-align: center;font-family: 'Nunito', sans-serif;color: #454545;">Chronic Pain</h4>
@@ -420,7 +427,12 @@
                     </div>
 
 
-                  
+                 
+
+
+              
+
+
 
 
                     <!-- 2nd -->
@@ -450,7 +462,7 @@
                         <div class="about-content s-about-content">
 
                             <ul class="sr-tw-ul">
-                                <li>
+                                <li >
 
                                     <div class="text">
                                         <h4 style="text-align: center;font-family: 'Nunito', sans-serif;color: #454545;">Balance and Coordination Issues
@@ -496,7 +508,6 @@
                             <ul class="sr-tw-ul">
 
                                 <li>
-
                                     <div class="text">
                                         <h4 style="text-align: center;font-family: 'Nunito', sans-serif;color: #454545;">Joint Pain</h4>
                                         <p style="text-align: justify;font-family: Roboto Condensed;font-weight: normal;" class="tru">Engaging in low-impact exercises like walking or cycling, using hot and cold therapy, and maintaining a healthy weight can help alleviate joint pain.
@@ -520,12 +531,13 @@
 
 
 
-                    <div class="col-lg-4 col-md-4 col-sm-12">
+               
+                    <div class="col-lg-4 col-md-4 col-sm-12 slide-in-text">
                         <div class="about-content s-about-content">
 
                             <ul class="sr-tw-ul">
 
-                                <li>
+                                <li >
 
                                     <div class="text">
                                         <h4 style="text-align: center;font-family: 'Nunito', sans-serif;color: #454545;"><span><a href="index.html">👆More</a></span> </h4>
@@ -581,7 +593,11 @@
                             
                             <p style="color: #fdfdfdbd;
   text-align: justify;font-family: Roboto Condensed;
-  font-weight: lighter;">At OnlyPhysio, we bring over 10 years of experience in delivering personalized physiotherapy care. Our expert therapists tailor treatments for injury recovery, chronic pain, and post-surgery rehab. Using the latest techniques, we help restore mobility and improve overall health. We’re known for our commitment to clinical excellence and patient satisfaction. Experience the OnlyPhysio difference—your recovery is our priority.</div>
+  font-weight: lighter;">At OnlyPhysio, we bring over 10 years of experience in delivering personalized physiotherapy care.
+Our expert therapists tailor treatments for injury recovery, chronic pain, and post-surgery rehab.
+Using the latest techniques, we help restore mobility and improve overall health.
+We’re known for our commitment to clinical excellence and patient satisfaction.
+Experience the OnlyPhysio difference—your recovery is our priority.</div>
                     <div class="col-lg-5">
                         <div class="faq-img text-right">
                             <div class="col-lg-6">
@@ -925,6 +941,19 @@ Loved their job. My mom is very much happy about their service. </p>
           });
           
         </script>
+        <script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  });
+
+  const slideText = document.querySelector('.slide-in-text');
+  observer.observe(slideText);
+</script>
+
 
 
         
