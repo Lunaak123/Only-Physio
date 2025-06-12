@@ -1,109 +1,214 @@
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  box-sizing: border-box;
 }
 
 body {
-  line-height: 1.6;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
   color: #333;
 }
 
 header {
-  background: #005f73;
-  color: white;
-  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-header h1 {
-  font-size: 1.5rem;
-}
-
-nav a {
+  padding: 15px 25px;
+  background-color: #007B7F;
   color: white;
-  margin-left: 15px;
-  text-decoration: none;
+  position: relative;
+}
+
+.logo {
+  font-size: 24px;
   font-weight: bold;
 }
 
-nav a.active, nav a:hover {
-  text-decoration: underline;
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
 }
-
-.hero {
-  background: #e0fbfc;
-  text-align: center;
-  padding: 4rem 2rem;
-}
-
-.hero h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+#main-logo{
+  height: 80px;
+  width: 80px;
+  border-radius:20% ;
 }
 
 .about-section {
-  padding: 3rem 2rem;
-  background: #f5f5f5;
+  background-color: #ffffff;
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin-left: 50px ;
+  margin-right: 50px;
+  margin-top: 50px;
+  text-align: left;
 }
 
-.about-content {
+.about-section h2 {
+  color: #007B7F;
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+.about-section p {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.services-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.services-section h1 {
+  margin-bottom: 30px;
+  font-size: 32px;
+  color: #007B7F;
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  
+  margin-left: 50px ;
+  margin-right: 50px;
+}
+
+
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-socials {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.footer-socials img {
+  width: 40px;
+  margin: 0 15px;
+  vertical-align: middle;
+}
+
+.footer-sections {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-.about-content .text {
-  flex: 1 1 300px;
-  max-width: 600px;
+.footer-column {
+  flex: 1;
+  min-width: 250px;
 }
 
-.about-content .text h3 {
-  margin-top: 1.5rem;
-  color: #0a9396;
+.footer-column h3 {
+  color:#5076c6;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
-.about-content .image {
-  flex: 1 1 300px;
-  text-align: center;
+.footer-column ul {
+  list-style: none;
+  padding: 0;
 }
 
-.about-content .image img {
-  max-width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+.footer-column ul li {
+  margin: 6px 0;
+  color: #ccc;
 }
 
-.cta {
-  background: #94d2bd;
-  text-align: center;
-  padding: 3rem 2rem;
-  color: #003845;
-}
-
-.cta-button {
-  margin-top: 1rem;
-  display: inline-block;
-  background: #007f5f;
-  color: white;
-  padding: 0.75rem 1.5rem;
+.footer-column ul li a {
+  color: #ccc;
   text-decoration: none;
-  border-radius: 5px;
 }
 
-.cta-button:hover {
-  background: #005f3c;
+.footer-column ul li a:hover {
+  text-decoration: underline;
 }
 
+address {
+  margin-top: 15px;
+  color: #5076c6;
+}
+
+
+.service-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.main-footer {
+    background-color: #000000;
+    color: white;
+    /* padding: 40px 20px; */
+    font-family: 'Segoe UI', sans-serif;
+}
 footer {
-  background: #003049;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+    /* margin-top: 40px; */
+}
+
+
+
+/* Responsive nav */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 25px;
+    background-color: #007B7F;
+    border-radius: 5px;
+    width: 200px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    padding: 10px 0;
+  }
+
+  nav ul li {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  nav.show {
+    display: block;
+  }
 }
