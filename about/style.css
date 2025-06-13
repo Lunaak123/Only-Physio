@@ -12,6 +12,43 @@ body {
   line-height: 1.5;
 }
 
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 25px;
+    background-color: #007B7F;
+    border-radius: 5px;
+    width: 200px;
+  }
+
+  nav.show {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    padding: 10px 0;
+  }
+
+  nav ul li {
+    text-align: center;
+    margin: 10px 0;
+  }
+}
+
+
 /* 2. Utility Container */
 .container {
   width: 90%;           /* use 90% of viewport width */
