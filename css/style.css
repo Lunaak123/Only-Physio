@@ -54,8 +54,7 @@ body {
   height: auto;
   
   display: block;
-  margin-left: 100px;
-  margin-right: auto;
+  
 }
 
 .mean-container .mean-nav ul li a {
@@ -142,6 +141,55 @@ body {
   opacity: 1;
   transform: translateX(0);
 }
+
+
+.fade-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.typewriter-multiline {
+  display: inline-block;
+  /* border-right: 2px solid black; */
+  white-space: pre-wrap;  /* Enables wrapping and respects spacing */
+  overflow: hidden;
+  opacity: 0;
+}
+
+/* Add animation when visible */
+.typewriter-multiline.animate {
+  animation: blink 0.75s step-end infinite;
+  opacity: 1;
+}
+
+/* Blinking cursor */
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+
+.blinking-button {
+  padding: 12px 24px;
+  font-size: 16px;
+  color: white;
+  background-color: #001b38;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  animation: blinkButton 1s infinite;
+}
+
+@keyframes blinkButton {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+
 
 
 .fade-in-text {
