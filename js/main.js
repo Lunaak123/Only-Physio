@@ -34,6 +34,40 @@
         }
     });
 
+   
+
+
+  const elements = document.querySelectorAll('.typewriter-multiline');
+
+  const typeText = (el, text, speed = 30) => {
+    let index = 0;
+    el.textContent = '';
+    const typer = () => {
+      if (index < text.length) {
+        el.textContent += text.charAt(index);
+        index++;
+        setTimeout(typer, speed);
+      }
+    };
+    typer();
+  };
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('animate')) {
+        const el = entry.target;
+        const fullText = el.textContent;
+        el.classList.add('animate');
+        typeText(el, fullText, 20);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  elements.forEach(el => observer.observe(el));
+
+
+
     // RESPONSIVE MENU
     $('.responsive').on('click', function(e) {
         $('#mobile-menu').slideToggle();
