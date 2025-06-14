@@ -1,1 +1,1034 @@
 
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Only Physio</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo/logo.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/dripicons.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/meanmenu.css">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        
+        
+      }
+      /* Add underline effect on hover */
+.main-menu li {
+    position: relative; /* Required for underline effect */
+}
+
+
+
+
+
+.main-menu li::after {
+    content: '';
+    position: absolute;
+    bottom:20px; /* Align underline to the bottom of the text */
+    left: 0;
+    width: 0;
+    height: 3px; /* Thickness of the underline */
+    background-color: #1fbcb9; /* Underline color */
+    transition: width 0.3s ease; /* Smooth animation */
+}
+
+.main-menu li:hover::after {
+    width: 100%; /* Expand underline on hover */
+}
+
+      .f-widget-title {
+        display: flex;
+        justify-content: center; /* Align horizontally in the center */
+        gap: 20px; /* Optional: Space between logos */
+        align-items: center; /* Align logos vertically */
+    }
+
+    /* Styling for the button inside the link */
+.button-booking button {
+    display: inline-block;
+    background-color: #2ed8eb; /* Primary blue */
+    color: rgb(255, 255, 255); /* Text color */
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 25px; /* Button padding */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded corners */
+    text-align: center; /* Center text */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 3D shadow effect */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Hover Effect */
+.button-booking button:hover {
+    background-color: #7ddeea; /* Darker blue */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+}
+
+/* Active (Click) Effect */
+.button-booking button:active {
+    background-color: #0077ff; /* Even darker blue */
+    transform: translateY(2px); /* Simulate press effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Smaller shadow */
+    
+}
+
+/* Remove default styling of <a> */
+.button-booking {
+    text-decoration: none; /* Remove underline */
+}
+
+    .f-widget-title h2 {
+        margin: 0; /* Remove default margin from h2 elements */
+    }
+
+    .f-widget-title img {
+        max-width: 100px; /* Adjust size if needed */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+      .icon-right img {
+        width: 115px; /* Sets the width */
+        height: 179px; /* Sets the height */
+        object-fit: contain; /* Ensures the image fits inside without being cropped */
+        display: block; /* Removes any unwanted inline spacing */
+        margin: 0 auto; /* Centers the image horizontally */
+      }
+      
+      .circular-image {
+        width: 520px; /* Adjust as needed */
+        height: 520px; /* Adjust as needed */
+        object-fit: cover; 
+        border-radius: 50%; /* This makes the image circular */
+        border-width: 10px;
+        border-color: rgb(188, 223, 249); /* Blue border color */
+        border-style: solid;
+      /* Make sure the border is visible */
+    }
+    
+      .quality-service {
+        background-color: #b9b9b9;
+        padding: 10px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: row;
+      }
+      
+      .info {
+        flex: 1;
+        margin-right: 10px;
+	
+
+      }
+      
+      .info h2 {
+        font-size: 2em;
+        color: #12073e;
+      }
+      
+      .info ul {
+        list-style: none;
+        padding: 0;
+        color: #061044;
+      }
+      
+      .info ul li {
+        margin: 10px 0;
+      }
+      
+      .info button {
+        padding: 10px 20px;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        background-color: #0a4b5c; /* Initial blue color */
+        color: #fff6f6; /* White text */
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    }
+    
+    .slide-in-text-right {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.slide-in-text-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+    .info button:hover {
+        background-color: #5aa7b2; /* Faded blue color */
+        color: #000; /* Optional: Change text color to black */
+    }
+    
+      .stats {
+        display: flex;
+        flex: 1;
+        justify-content: space-evenly; /* Ensures even spacing between items */
+        flex-wrap: wrap; /* Allows wrapping on smaller screens */
+        gap: 20px; /* Adds consistent spacing between elements */
+      }
+      
+      .stat {
+        text-align: justify;
+        width: 250px; /* Ensures all stats have a fixed width for alignment */
+        box-sizing: border-box; /* Ensures padding doesn't affect the width */
+        font-size: 30px;
+      }
+      
+      .stat .number {
+        font-size: 2em;
+        font-weight: bold;
+        color: #ffdd57;
+      }
+      
+      </style>
+ 
+</head>
+
+<body>
+    <!-- header -->
+    <header class="header-area header-three">
+        <div class="header-top second-header d-none d-md-block">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12 col-md-12 d-none d-lg-block">
+                        <div class="header-cta">
+                            <ul>
+                                <li>
+                                    <i class="icon fal fa-envelope"></i>
+                                    <span>kjfcnbyvn@hotmail.com</span>
+                                </li>
+                                <li>
+                                    <i class="icon fal fa-phone"></i>
+                                    <span>Helpline +91 3597683</span>
+                                </li>
+                                <li>
+                                    <i class="icon fal fa-phone"></i>
+                                    <span>Call - +91 980999</span>
+                                </li>
+                                <li>
+                                    <i class="icon fal fa-phone"></i>
+                                    <span>Home Health - +91 5236888</span>
+                                </li>
+
+                                <li>
+                                    <i class="icon fal fa-clock"></i>
+                                    <span>All Days - 9:00 AM to 9:00 PM</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+        <div id="header-sticky" class="menu-area">
+            <div class="container">
+                <div class="second-menu">
+                    <div class="row align-items-center">
+                        <div class="col-xl-2 col-lg-2">
+                           <div class="logo-container fade-in-text">
+  
+  <img   src="img/logo/logo.png" alt="logo" class="logo-image">
+  <div class="slide-in-text">
+  <h3 >ONLY PHYSIO</h3>
+  </div>
+</div>
+
+                           
+                        </div>
+                        <div class="col-xl-7 col-lg-7">
+
+                            <div class="main-menu text-right text-xl-right">
+                                
+                                <nav id="mobile-menu" style="display: block;">
+                                    
+                                    <ul class="slide-in-text-right">
+                                        
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="./Booking/index.html">Booking</a></li>
+                                        <li><a href="./about/index.html">About our Service</a></li>
+                                        
+                                      
+
+                                        
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 text-right d-none d-lg-block mt-25 mb-25 text-right text-xl-right">
+                            <div class="login">
+                                <ul>
+                                    <li>
+                                        <div class="second-header-btn slide-in-text-right">
+                                            <a href="tel:+919876543210" class="btn">Contact Us</a>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-12">
+                            <div class="mobile-menu"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>    <!-- header-end -->
+    <!-- main-area -->
+    <main>
+
+        <!-- search-popup -->
+        <div class="modal fade bs-example-modal-lg search-bg popup1" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content search-popup">
+                    <div class="text-center">
+                        <a href="#" class="close2" data-dismiss="modal" aria-label="Close">× close</a>
+                    </div>
+                    <div class="row search-outer">
+                        <div class="col-md-11"><input type="text" placeholder="Search for products..." /></div>
+                        <div class="col-md-1 text-right"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /search-popup -->
+        <!-- slider-area -->
+        <section id="home" class="slider-area fix p-relative">
+
+            <div class="slider-active" style="background: #00173c;">
+                <div class="single-slider slider-bg d-flex align-items-center"
+                    style="background-image: url(img/slider/slider_bg.webp); background-size: cover;">
+                    <div class="container">
+                        <div class="row justify-content-center align-items-center">
+
+                            <div class="col-lg-7 col-md-7">
+                                <div class="slider-content s-slider-content mt-20">
+                                    <h5 data-animation="fadeInUp" data-delay=".4s"></h5>
+                                    <h2 data-animation="fadeInUp" data-delay=".4s">Taking Quality Closer</h2>
+                                    <h2 data-animation="fadeInUp" data-delay=".4s"><span style="color: transparent;
+                                        -webkit-text-stroke: 1px #fff;">To Your Family</span></h2>
+
+                                    <p data-animation="fadeInUp" data-delay=".6s" style="font-family: poppins;">Our Family Clinic provides affordable and quality healthcare to rural and urban areas in India.</p>
+                                    <br />
+                                    <div class="second-header-btn fade-on-scroll">
+                                        <a href="./Booking/index.html" class="button-booking "><button>Booking</button></a>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-5 p-relative">
+                                <div class="banner-img">
+                                    <img src="img/slider/banner1.webp" alt="banner" class="circular-image">
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </section>
+        <!-- slider-area-end -->
+        <br /><br />
+
+        <main>
+            <div class="container fade-on-scroll">
+                <div class="col-md-12 ">
+                    <h3 class="title-around-flex" style="font-family: 'Nunito', sans-serif;color: #454545;">About Our <span
+                            style="color:#00a29a; margin-left: 10px;font-family: 'Nunito', sans-serif;"> Theraphy
+                        </span> </h3>
+                    <hr>
+                    <p style="text-align: center;
+  font-family: Roboto Condensed;
+  font-weight: normal;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  color: #605959;">A One Stop Centre
+                        in your neighbourhood for all your physio needs
+                    </p>
+                    <p class="typewriter-multiline" style="text-align: justify;font-family: Roboto Condensed;font-weight: normal">At OnlyPhysio, we are dedicated to providing exceptional physiotherapy services that help you recover, restore, and thrive. Our team of skilled therapists focuses on personalized care to treat a wide range of conditions, from injury recovery to chronic pain management. With a proven track record of success, we have helped countless clients regain mobility and improve their quality of life. Our holistic approach ensures that you receive the best treatment tailored to your unique needs. Trust OnlyPhysio to guide you on your path to a pain-free and active life.</p>
+                </div>
+
+            </div>
+
+
+
+        </main>
+        <!-- service-details2-area -->
+        <section id="service-details2" class="service-details-two pt-120 pb-105 p-relative">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="section-title center-align mb-50 text-center">
+                            <h2 style="font-family: 'Nunito', sans-serif;color: #454545;">
+                                Get Care <span style="color:#00a29a;">Today</span> For
+                            </h2>
+                            <div class="rotating-text-wrapper">
+                                <h2 class="flp">Relieve your pain, restore your strength</h2>
+                                <h2 class="flp">Move better, feel better.</h2>
+                                <h2 class="flp">Empowering your body to heal naturally.</h2>
+                                <h2 class="flp">Flexibility and freedom, one step at a time.</h2>
+                            
+                            </div>
+                            <p class="fnt" style="text-align: center;">We provide personalized physiotherapy rehabilitation services aimed at helping you recover from injuries, surgeries, or chronic conditions.<br />Our goal is to help you regain your independence, enhance your physical function, and improve your overall well-being.</p>
+
+                        </div>
+
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-4 col-sm-12 fade-on-scroll">
+                        <div class="about-content s-about-content">
+
+                            <ul class="sr-tw-ul text-right">
+                                
+                                <li >
+
+                                    <div class="text">
+                                        <h4 style="text-align: center;font-family: 'Nunito', sans-serif;color: #454545;">Chronic Pain</h4>
+                                        <p style="text-align: justify;font-family: Roboto Condensed;font-weight: normal;" class="tru"> Regular stretching, posture correction, and applying heat/cold packs can help manage pain.<span><a href="index.html">More</a></span> </p>
+                                    </div>
+                                    <div class="icon-right"><img src="img/icon/1.png" alt="icon01"></div>
+                                </li>
+
+
+
+                            </ul>
+
+
+                        </div>
+                    </div>
+
+
+                 
+
+
+              
+
+
+
+
+                    <!-- 2nd -->
+                    <div class="col-lg-4 col-md-4 col-sm-12 fade-on-scroll">
+                        <div class="about-content s-about-content ">
+
+                            <ul class="sr-tw-ul">
+                                <li>
+
+                                    <div class="text">
+                                        <h4 style="text-align: center;font-family: 'Nunito', sans-serif;color: #454545;">Post-Surgery Recovery</h4>
+                                        <p style="text-align: justify;font-family: Roboto Condensed; font-weight: normal;" class="tru">Follow a structured rehabilitation program with a physiotherapist to regain strength and function.<span><a href="index.html">More</a></span> </p>
+                                    </div>
+                                    <div class="icon-right"><img src="img/icon/04.png" alt="icon01"></div>
+                                </li>
+
+
+
+                            </ul>
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-4 col-sm-12 fade-on-scroll">
+                        <div class="about-content s-about-content ">
+
+                            <ul class="sr-tw-ul">
+                                <li >
+
+                                    <div class="text">
+                                        <h4 style="text-align: center;font-family: 'Nunito', sans-serif;color: #454545;">Balance and Coordination Issues
+                                        </h4>
+                                        <p style="text-align: justify;font-family: Roboto Condensed;font-weight: normal;" class="tru">Practice balance exercises, such as standing on one leg or using a stability ball, to improve coordination.<span><a href="index.html">More</a></span> </p>
+                                    </div>
+                                    <div class="icon-right"><img src="img/icon/05.png" alt="icon01"></div>
+                                </li>
+
+                            </ul>
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-4 col-sm-12 fade-on-scroll">
+                        <div class="about-content s-about-content ">
+
+                            <ul class="sr-tw-ul">
+
+                                <li>
+
+                                    <div class="text">
+                                        <h4 style="text-align: center;font-family: 'Nunito', sans-serif;color: #454545;">Sports Injuries</h4>
+                                        <p style="text-align: justify;font-family: Roboto Condensed;font-weight: normal;" class="tru">Rest, ice, compression, and elevation (RICE) combined with targeted rehab exercises speed up recovery.<span><a href="index.html">More</a></span> </p>
+                                    </div>
+                                    <div class="icon-right"><img src="img/icon/6.png" alt="icon01"></div>
+                                </li>
+
+
+                            </ul>
+
+
+                        </div>
+                    </div>
+
+                    <!-- 2nd -->
+
+                    <div class="col-lg-4 col-md-4 col-sm-12 fade-on-scroll">
+                        <div class="about-content s-about-content">
+
+                            <ul class="sr-tw-ul ">
+
+                                <li>
+                                    <div class="text">
+                                        <h4 style="text-align: center;font-family: 'Nunito', sans-serif;color: #454545;">Joint Pain</h4>
+                                        <p style="text-align: justify;font-family: Roboto Condensed;font-weight: normal;" class="tru">Engaging in low-impact exercises like walking or cycling, using hot and cold therapy, and maintaining a healthy weight can help alleviate joint pain.
+
+
+
+
+
+
+                                            <span><a href="index.html">More</a></span> </p>
+                                    </div>
+                                    <div class="icon-right"><img src="img/icon/7.png" alt="icon01"></div>
+                                </li>
+
+
+                            </ul>
+
+
+                        </div>
+                    </div>
+
+
+
+               
+                    <div class="col-lg-4 col-md-4 col-sm-12 fade-on-scroll ">
+                        <div class="about-content s-about-content ">
+
+                            <ul class="sr-tw-ul ">
+
+                                <li >
+
+                                    <div class="text">
+                                        <h4 style="text-align: center;font-family: 'Nunito', sans-serif;color: #454545;"><span><a href="index.html">👆More</a></span> </h4>
+                                        <p style="text-align: justify;font-family: Roboto Condensed;font-weight: normal;" class="tru"><a herf="index.html"> "👉Unlock tailored solutions to your problems with just one click"</a></p>
+                                    </div>
+                                    <div class="icon-right"><img src="img/icon/9.png" alt="icon01"></div>
+                                </li>
+
+
+                            </ul>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        <!-- service-details2-area-end -->
+
+        <!-- about-area -->
+
+        <!-- about-area-end -->
+
+        <!-- counter -->
+
+        <!-- about-area -->
+     
+                        <!-- start count stats -->
+
+                        
+
+                        <!-- end cont stats -->
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- about-area-end -->
+        <!-- style="background-image: url('img/bg/footer.jpg');" -->
+
+        <section class="faq-area fix sec" style="    background: linear-gradient(168deg, rgb(4, 32, 48) 0%, rgb(10, 65, 116) 84%);">
+            <div class="container">
+
+                <div class="row align-items-center">
+
+                    <div class="col-lg-7">
+                        <div class="section-title">
+                            <h3 style="color: #fdfdfd;font-family: 'Nunito', sans-serif; font-size: 20px;">"More than <br> <span class="one_million"> 200 </span>  Walkin Consultations so far- India's leading and most Thriving Primary Healcare chain"</h3>
+                        </div>
+                        <div class="faq-wrap">
+                            <br />
+                            
+                            <p style="color: #fdfdfdbd;
+  text-align: justify;font-family: Roboto Condensed;
+  font-weight: lighter;">At OnlyPhysio, we bring over 10 years of experience in delivering personalized physiotherapy care.
+Our expert therapists tailor treatments for injury recovery, chronic pain, and post-surgery rehab.
+Using the latest techniques, we help restore mobility and improve overall health.
+We’re known for our commitment to clinical excellence and patient satisfaction.
+Experience the OnlyPhysio difference—your recovery is our priority.</div>
+                    <div class="col-lg-5">
+                        <div class="faq-img text-right">
+                            <div class="col-lg-6">
+                                <div class="section-title mb-10">
+                                    <!-- <h3>Frequently Asked Question</h3> -->
+                                </div>
+                                <div class="faq-wrap">
+
+
+
+                                    <div id="clockdiv">
+                                        <h3 class="counter_heading">Patients Treated and Counting</h3>
+                                        <div class="cnt blinking-button">
+                                        
+                                        <h2 style="font-family: Roboto Condensed;color: #fff;">10,000+ Happy Patients</h2>
+                                        </div>
+                                        <!-- <div style="background-image: url('img/icon/Group8542.png');">
+                                            <span class="days" id="day"></span>
+                                            <div class="smalltext">Days</div>
+                                        </div>
+                                        <div style="background-image: url('img/icon/Group8542.png');">
+                                            <span class="hours" id="hour"></span>
+                                            <div class="smalltext">Hours</div>
+                                        </div>
+                                        <div style="background-image: url('img/icon/Group8542.png');">
+                                            <span class="minutes" id="minute"></span>
+                                            <div class="smalltext">Minutes</div>
+                                        </div>
+                                        <div style="background-image: url('img/icon/Group8542.png');">
+                                            <span class="seconds" id="second"></span>
+                                            <div class="smalltext">Seconds</div>
+                                        </div> -->
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- booking-area -->
+
+        <!-- booking-area-end -->
+        <!-- testimonial-area -->
+        <section  id="review-scroll" class="testimonial-area pb-115 p-relative fix">
+
+            <img src="img/testimonial/googlereview.webp" class="google-review" alt="google reviews">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <div class="testimonial-active">
+                            <div class="single-testimonial">
+                                <div class="testi-author">
+                                    <img src="img/testimonial/qt-icon.png" alt="img">
+                                </div>
+                                <p class="fnt">I had a back pain for month. A therapist from onlyphysio team have gave a treatment and taught me some home exercises. Now I m completely free of pain. Thanks onlyphysio team.
+ </p>
+                                <div class="ta-info">
+                                    <p class="fnt">Mr Ganapathy sathish</p>
+                                    <!-- <span>Web Developer</span> -->
+                                </div>
+                                <div class="qt-img">
+                                    <img src="img/testimonial/avatar.png" alt="img">
+                                </div>
+                            </div>
+
+                            <div class="single-testimonial">
+                                <div class="testi-author">
+                                    <img src="img/testimonial/qt-icon.png" alt="img">
+                                </div>
+                                <p class="fnt">The physiotherapist did the wonderful job for my mom and they were very kind and professional
+Loved their job. My mom is very much happy about their service. </p>
+                                <div class="ta-info">
+                                    <p class="fnt">Mrs Ishwarya Seetharamman</p>
+                                    <!-- <span>Web Developer</span> -->
+                                </div>
+                                <div class="qt-img">
+                                    <img src="img/testimonial/avatar.png" alt="img">
+                                </div>
+                            </div>
+                            <div class="single-testimonial">
+                                <div class="testi-author">
+                                    <img src="img/testimonial/qt-icon.png" alt="img">
+                                </div>
+                                <p class="fnt">Thank you Mr Sathish and Only physio team for the wonderful care and treatment for my father who had difficulty in walking and holding things. Your exercises worked wonders and he is able to move with confidence. Thanks once again for your fantastic work towards restoring recovery.
+                             </p>
+                                <div class="ta-info">
+                                    <p class="fnt">Mr Jijo Thomas</p>
+                                    <!-- <span>Web Developer</span> -->
+                                </div>
+                                <div class="qt-img">
+                                    <img src="img/testimonial/avatar.png" alt="img">
+                                </div>
+                            </div>
+
+                            <div class="single-testimonial">
+                                <div class="testi-author">
+                                    <img src="img/testimonial/qt-icon.png" alt="img">
+                                </div>
+                                <p class="fnt">I suffered severe calcification tenodinovitis on my right shoulder stiffness and severe pain. I took physiotherapy from only physio. There are excellent therapist and well trained humble persons. I was completely free from ain within 2 days. Thank you so much.   </p>
+                                <div class="ta-info">
+                                    <p class="fnt">Mrs Vinaya</p>
+                                    <!-- <span>Web Developer</span> -->
+                                </div>
+                                <div class="qt-img">
+                                    <img src="img/testimonial/avatar.png" alt="img">
+                                </div>
+                            </div>
+                            <div class="single-testimonial">
+                                <div class="testi-author">
+                                    <img src="img/testimonial/qt-icon.png" alt="img">
+                                </div>
+                                <p class="fnt">I got their contact only through Google for in -house physio service..Indhu ,the assigned person ,really did a great job. Keep continuing ur great work !</p>
+                                <div class="ta-info">
+                                    <p class="fnt">Mrs Shailaja</p>
+                                    <!-- <span>Web Developer</span> -->
+                                </div>
+                                <div class="qt-img">
+                                    <img src="img/testimonial/avatar.png" alt="img">
+                                </div>
+                            </div>
+
+                            <div class="single-testimonial">
+                                <div class="testi-author">
+                                    <img src="img/testimonial/qt-icon.png" alt="img">
+                                </div>
+                                <p class="fnt">Best&fine treatment to my wife right knee.So done wonderful job especially physio therapy.so kindly touch with your bone treatment.Acually she done best treatment.     </p>
+                                <div class="ta-info">
+                                    <p class="fnt">Mr Chandru Prabhu</p>
+                                    <!-- <span>Web Developer</span> -->
+                                </div>
+                                <div class="qt-img">
+                                    <img src="img/testimonial/avatar.png" alt="img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- testimonial-area-end -->
+        <!-- pricing-area -->
+
+        <!-- blog-area-end -->
+
+    </main>
+    <!-- main-area-end -->
+    <!-- footer -->
+    
+<style>.f-widget-title img {
+  width: 60%;
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 6px;
+  
+}
+
+</style>
+
+  <footer>
+    <footer class="main-footer">
+  <div class="footer-container">
+    <div class="footer-socials">
+      <a href="#"><img src="../img/footer/instagram.webp" alt="Instagram"></a>
+      <a href="#"><img src="../img/footer/youtube.webp" alt="youtube"></a>
+      <a href="#"><img src="../img/footer/whatsapp.webp" alt="whatsapp"></a>
+      <a href="#"><img src="..img/footer/facebook.png" alt="facebook"></a>
+    </div>
+
+    <div class="footer-sections">
+      <div class="footer-column">
+        <h3 style="text-decoration: underline; text-decoration-color: rgb(202, 202, 202);">OTHER SERVICES</h3>
+        <ul>
+          <li>..................</li>
+          <li>..................</li>
+          <li>..................</li>
+          <li>..................</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 style="text-decoration: underline; text-decoration-color: rgb(202, 202, 202);">QUICK LINKS</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Health Centers</a></li>
+          <li><a href="#">Contact Us</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 style="text-decoration: underline; text-decoration-color: rgb(202, 202, 202);">QUICK CONTACT</h3>
+        <ul>
+          <li>+91 733</li>
+          <li>+91 9995</li>
+          <li>Home Health</li>
+          <li>+91 908</li>
+          <li>OnlyPhysio21@gmail.com</li>
+        </ul>
+        <address>
+              <div class="footer-column">
+  
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.9362427542655!2d80.18873807409726!3d13.039730287281952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52673435b449e3%3A0xa7f6bd8f4d5dd11!2sOnly%20Physio%20%7C%20Home%20Care%20Physiotherapy%2C%20Chennai!5e0!3m2!1sen!2sin!4v1749710233768!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+            
+         <a style=" color:#0077ff" href="https://www.google.com/maps/place/Only+Physio+%7C+Home+Care+Physiotherapy,+Chennai/@13.03973,80.191313,15z/data=!4m6!3m5!1s0x3a52673435b449e3:0xa7f6bd8f4d5dd11!8m2!3d13.0397303!4d80.191313!16s%2Fg%2F11rsp9hz8x?hl=en&entry=ttu&g_ep=EgoyMDI1MDYxMS4wIKXMDSoASAFQAw%3D%3D"> <strong>No-23, 12, Mariamman Kovil St,<br>
+          KK Nagar West, Nesapakkam,<br>
+          Chennai, Tamil Nadu 600078</strong></a>
+        </address>
+      
+
+      </div>
+    </div>
+  </div>
+</footer>
+<hr>
+    <p id="footer-text">&copy; 2025 PhysioCare. All rights reserved.</p>
+  </footer>
+
+    <!-- JS here -->
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/ajax-form.js"></script>
+    <script src="js/paroller.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/js_isotope.pkgd.min.js"></script>
+    <script src="js/imagesloaded.min.js"></script>
+    <script src="js/parallax.min.js"></script> 
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/jquery.meanmenu.min.js"></script>
+    <script src="js/parallax-scroll.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/element-in-view.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+       var startDate = new Date("Nov 1, 2023 00:00:00").getTime();
+    
+    // Update the countdown timer every second
+    var x = setInterval(function() {
+        var now = new Date().getTime();
+        
+        var timeRemaining = now-startDate;
+
+        var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        
+        
+      
+
+        // Display the countdown timer dynamically
+        document.getElementById("day").innerHTML = days;
+        document.getElementById("hour").innerHTML = hours;
+        document.getElementById("minute").innerHTML = minutes;
+        document.getElementById("second").innerHTML = seconds;
+
+        // Output the Start date (for demonstration purposes)
+        document.getElementById("startDate").innerHTML = "Start Date: " + new Date(startDate);
+
+        // When the countdown timer reaches zero, you can do something here
+        if (timeRemaining <= 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "EXPIRED";
+        }
+    }, 1000);  
+        
+        
+        
+        
+        
+    </script>
+
+
+    
+    <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const target = document.querySelector('.fade-in-text');
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          obs.unobserve(entry.target); // animate once
+        }
+      });
+    }, { threshold: 0.3 });
+
+    if (target) observer.observe(target);
+  });
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const slideElements = document.querySelectorAll('.slide-in-text-right');
+    const observerOptions = {
+      threshold: 0.2 // triggers when 20% of the element is visible
+    };
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target); // animate once
+        }
+      });
+    }, observerOptions);
+
+    slideElements.forEach(el => {
+      observer.observe(el);
+    });
+  });
+</script>
+
+    
+    <script>
+        /* Enter here your Start date in this format! */
+       //  var startDate = "Jan 1, 2022 00:00:00" ; //"Nov 01, 2023 00:11:00"; //"Jan 1, 2022 00:00:00";
+        
+        /* ***** Do not change this code below. ***** */
+       // var startTime = new Date(startDate).getTime();
+        
+        // var x = setInterval(function () {
+        //     var now = new Date().getTime();
+        //     var t = now - startTime;
+        //     var days = Math.floor(t / (1000 * 60 * 60 * 24));
+        //     var hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        //     var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+        //     var seconds = Math.floor((t % (1000 * 60)) / 1000);
+        //     document.getElementById("day").innerHTML = days;
+        //     document.getElementById("hour").innerHTML = hours;
+        //     document.getElementById("minute").innerHTML = minutes;
+        //     document.getElementById("second").innerHTML = seconds;
+        
+        //     /* Output the Start date. (Only for Demo) */
+        //     document.getElementById("startDate").innerHTML = startDate;
+        
+        // }, 1000);
+    </script>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const numbers = document.querySelectorAll(".stats .number");
+          
+            const animateNumbers = () => {
+              numbers.forEach((num) => {
+                const target = +num.getAttribute("data-target"); // Get the target value
+                const increment = target / 100; // Calculate increment steps
+          
+                const updateCount = () => {
+                  const current = +num.innerText;
+          
+                  if (current < target) {
+                    num.innerText = Math.ceil(current + increment);
+                    setTimeout(updateCount, 20); // Adjust animation speed
+                  } else {
+                    num.innerText = target; // Ensure the final number matches the target
+                  }
+                };
+          
+                updateCount();
+              });
+            };
+          
+            const observer = new IntersectionObserver(
+              (entries) => {
+                entries.forEach((entry) => {
+                  if (entry.isIntersecting) {
+                    animateNumbers(); // Trigger animation
+                    observer.disconnect(); // Stop observing once the animation is complete
+                  }
+                });
+              },
+              { threshold: 0.5 } // Trigger when 50% of the `.stats` section is visible
+            );
+          
+            observer.observe(document.querySelector(".stats"));
+          });
+          
+        </script>
+        <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const targets = document.querySelectorAll('.fade-on-scroll');
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          obs.unobserve(entry.target); // run once per element
+        }
+      });
+    }, { threshold: 0.3 });
+
+    targets.forEach(el => observer.observe(el));
+  });
+</script>
+
+        <script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  });
+
+  const slideText = document.querySelector('.slide-in-text');
+  observer.observe(slideText);
+</script>
+
+
+
+        
+</body>
+
+</html>
+
