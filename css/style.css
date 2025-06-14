@@ -52,7 +52,8 @@ body {
 .google-review {
   width: 200px;
   height: auto;
-  
+  margin-left:10% ;
+  margin-top: 10px;
   display: block;
   
 }
@@ -540,6 +541,7 @@ footer {
   width: 40px;
   margin: 0 15px;
   vertical-align: middle;
+  border-radius: 100%;
 }
 
 .footer-sections {
