@@ -214,7 +214,7 @@ footer {
     display: block;
   }
   nav {
-    position: absolute;
+    position: relative;
     top: 100%;
     right: 1rem;
     background: #007B7F;
