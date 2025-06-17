@@ -35,14 +35,7 @@ body {
     color: #000f2a;
     font-style: normal;
     line-height: 26px;
-	
-  user-select: none;
-  -webkit-user-select: none; /* For Safari */
-  -moz-user-select: none;    /* For Firefox */
-  -ms-user-select: none;     /* For Internet Explorer */
 }
-
-
 
 .text-left {
     text-align: left !important;
