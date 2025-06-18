@@ -95,6 +95,35 @@ body {
     background: rgba(0, 0, 0, 0);
 }
 
+
+.call {
+    position: fixed;        /* Sticks to the screen */
+    bottom: 20px;           /* 20px from bottom */
+    right: 20px;            /* 20px from right */
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 0;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    z-index: 9999;          /* Stays on top */
+    background-color: transparent;
+  }
+
+  .call img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 600px) {
+    .call {
+      height: 50px;
+      width: 50px;
+    }
+  }
 .srb-line {
     width: 100%;
     text-align: center;
