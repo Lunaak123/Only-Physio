@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OnlyPhysio-Tute</title>
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="logo-area">
+    <img src="../img/logo/logo.png" alt="OnlyPhysio Logo" class="logo" />
+  </div>
+
+  <h1 class="site-title">ONLY PHYSIO-Tute's</h1>
+
+ 
+
+  
+</header>
+
+
+  <div class="video-container" id="videos"></div>
+
+  <script>
+    const apiKey = 'AIzaSyCAHTdyWumxYhuBzTtxYmoRX9TEFqwqO5U';
+    const channelId = 'UCX_IuspsJWX7xntlAmMzCiw';
+    const maxResults = 10;
+
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=${maxResults}`)
+      .then(response => response.json())
+      .then(data => {
+        const videoContainer = document.getElementById('videos');
+        data.items.forEach(item => {
+          if (item.id.kind === 'youtube#video') {
+            const videoId = item.id.videoId;
+            const title = item.snippet.title;
+
+            const videoCard = document.createElement('div');
+            videoCard.className = 'video-card';
+
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube.com/embed/${videoId}`;
+            iframe.setAttribute('allowfullscreen', true);
+            iframe.setAttribute('title', title);
+
+            const caption = document.createElement('p');
+            caption.className = 'video-title';
+            caption.textContent = title;
+
+            videoCard.appendChild(iframe);
+            videoCard.appendChild(caption);
+
+            videoContainer.appendChild(videoCard);
+          }
+        });
+      })
+      .catch(err => console.error('Error loading YouTube videos:', err));
+      
+      
+  const toggleBtn = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  toggleBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+</script>
+
+  
+
+</body>
+</html>
