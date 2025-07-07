@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rentals</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
+    .header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      
+    }
+    
+    .controls {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 20px;
+    }
+    input, select {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    #productList {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 30px;
+    }
+    .product {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .product:hover {
+      transform: scale(1.02);
+    }
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .product-name {
+      font-size: 20px;
+      margin: 10px 0 5px;
+    }
+    .product-price {
+      color: #27ae60;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .logo-image {
+    height: 60px;
+    width: auto;
+    border-radius: 10px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #2c3e50; /* your dark background */
+  padding: 20px;
+}
+
+.header img {
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+  border-radius: 10px; /* if your image has rounded corners */
+}
+
+.header span {
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+}
+
+  </style>
+</head>
+<body>
+<div class="header">
+  <img   src="/img/logo/logo.png" alt="logo" class="logo-image">
+  <span>ONLYPHYSIO – Rentals</span>
+  </div>
+
+  <div class="controls">
+    
+    <input type="text" id="searchInput" placeholder="Search by name..." oninput="renderProducts()">
+    <select id="sortSelect" onchange="renderProducts()">
+      <option value="">Sort</option>
+      <option value="name-asc">A → Z</option>
+      <option value="name-desc">Z → A</option>
+      <option value="price-asc">Low → High</option>
+      <option value="price-desc">High → Low</option>
+    </select>
+  </div>
+
+  <div id="productList"></div>
+
+  <script>
+    let products = [];
+
+    async function loadProducts() {
+      const res = await fetch('http://localhost:3000/products');
+      products = await res.json();
+      renderProducts();
+    }
+
+    function renderProducts() {
+      const search = document.getElementById('searchInput').value.toLowerCase();
+      const sort = document.getElementById('sortSelect').value;
+
+      let filtered = products.filter(p => p.name.toLowerCase().includes(search));
+
+      if (sort === 'name-asc') {
+        filtered.sort((a, b) => a.name.localeCompare(b.name));
+      } else if (sort === 'name-desc') {
+        filtered.sort((a, b) => b.name.localeCompare(a.name));
+      } else if (sort === 'price-asc') {
+        filtered.sort((a, b) => (a.price || 0) - (b.price || 0));
+      } else if (sort === 'price-desc') {
+        filtered.sort((a, b) => (b.price || 0) - (a.price || 0));
+      }
+
+      const container = document.getElementById('productList');
+      container.innerHTML = '';
+      filtered.forEach(p => {
+        const price = p.price || 0;
+        const discount = p.discount || 0;
+        const discounted = price - (price * discount / 100);
+        container.innerHTML += `
+          <div class="product" onclick="location.href='product.html?id=${p._id}'">
+            <img src="${p.image}" alt="${p.name}">
+            <div class="product-name">${p.name}</div>
+            <div class="product-price">₹${discounted} <span style="color:green">(${discount}% off)</span></div>
+          </div>`;
+      });
+    }
+
+    loadProducts();
+  </script>
+
+</body>
+</html>

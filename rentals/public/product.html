@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rentals</title>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 30px;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    .main-img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .thumbs {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .thumbs img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid transparent;
+      border-radius: 5px;
+    }
+    .thumbs img:hover {
+      border-color: #007bff;
+    }
+    h2 {
+      margin: 15px 0 10px;
+    }
+    .price {
+      color: green;
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .rent-btn {
+      background-color: #28a745;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .rent-btn:hover {
+      background-color: #218838;
+      transform: scale(1.03);
+    }
+    #cancel-btn {
+      background-color: #a72828;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    #cancel-btn:hover {
+      background-color: #882121;
+      transform: scale(1.03);
+    }
+    .popup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.popup-content {
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+.popup-content h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.popup-content input,
+.popup-content textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.popup-content button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.popup-content button:hover {
+  background: #218838;
+}
+
+.close-btn {
+  text-align: right;
+  font-size: 20px;
+  cursor: pointer;
+  color: #999;
+  margin-bottom: -10px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 480px) {
+  .popup-content {
+    padding: 20px 15px;
+  }
+
+  .popup-content input,
+  .popup-content textarea {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .popup-content button {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+    
+  <div class="container">
+    <img id="mainImage" class="main-img" src="" alt="Product">
+    <div class="thumbs" id="imgBox"></div>
+    <h2 id="name"></h2>
+    <p id="description"></p>
+    <p class="price" id="price"></p>
+    <button class="rent-btn" onclick="openRentPopup()">Order to Rent</button>
+    <h4>Benefits:</h4>
+    <ul id="benefits"></ul>
+  </div>
+
+  <div id="rentPopup" class="popup">
+    <div class="popup-content">
+      <h3>Rent This Product</h3>
+      <form id="rentForm">
+        <input placeholder="Name" id="rname" required><br>
+        <input placeholder="Email" id="remail" type="email" required><br>
+        <input placeholder="Phone" id="rphone" type="tel" required><br>
+        <input placeholder="Address" id="raddress" required><br>
+        <input placeholder="Product Quantity" id="rquantity" type="number" required><br>
+        <input placeholder="Days for Rent" id="rdays" type="number" required><br>
+        <input type="hidden" id="rproduct">
+        <button type="submit" class="rent-btn">Send via WhatsApp</button>
+      </form>
+      <button id="cancel-btn " onclick="closeRentPopup()">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    let currentProductName = '';
+
+    async function loadProduct() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+      const res = await fetch(`http://localhost:3000/products/${id}`);
+      const product = await res.json();
+      currentProductName = product.name || 'Product';
+currentProductId = product._id || 'Unknown ID';
+document.getElementById('rproduct').value = `${currentProductName} (ID: ${currentProductId})`;
+
+
+      document.getElementById('name').innerText = currentProductName;
+      document.getElementById('description').innerText = product.description || 'No description.';
+      const price = product.price || 0;
+      const discount = product.discount || 0;
+      const discounted = price - (price * discount / 100);
+      document.getElementById('price').innerHTML = `₹${discounted} <span style="color:green">(${discount}% off)</span>`;
+      document.getElementById('mainImage').src = product.image;
+
+      const imgBox = document.getElementById('imgBox');
+      imgBox.innerHTML = Array.isArray(product.images) ? product.images.map(img =>
+        `<img src="${img}" onclick="document.getElementById('mainImage').src='${img}'">`
+      ).join('') : "<p>No extra images available.</p>";
+
+      const benefitList = document.getElementById('benefits');
+      benefitList.innerHTML = Array.isArray(product.benefits) ? product.benefits.map(b => `<li>${b}</li>`).join('') : "<li>No benefits listed.</li>";
+    }
+
+    function openRentPopup() {
+      document.getElementById('rentPopup').style.display = 'flex';
+    }
+
+    function closeRentPopup() {
+      document.getElementById('rentPopup').style.display = 'none';
+    }
+
+    document.getElementById('rentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('rname').value;
+      const email = document.getElementById('remail').value;
+      const phone = document.getElementById('rphone').value;
+      const address = document.getElementById('raddress').value;
+      const quantity = document.getElementById('rquantity').value;
+      const days = document.getElementById('rdays').value;
+      const productName = document.getElementById('rproduct').value;
+      
+
+
+      const message = `Hello, I want this product for rent.%0AProduct: ${productName}%0AName: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AAddress: ${address}%0AQuantity: ${quantity}%0ADays for Rent: ${days}`;
+      const whatsappNumber = '919042718811';
+      window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+    });
+
+    loadProduct();
+  </script>
+</body>
+</html>
